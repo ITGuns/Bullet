@@ -100,6 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Submit form data to Netlify
                 const response = await fetch('/', {
                     method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
                     body: formData
                 });
 
@@ -107,28 +110,32 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error('Failed to submit application');
                 }
 
-                const result = await response.json();
-                
-                if (!response.ok) {
-                    throw new Error(result.error || 'Failed to submit application');
-                }
-
                 // Update HR dashboard
                 const applications = JSON.parse(localStorage.getItem('applications') || '[]');
-                applications.unshift({
-                    fullName: formData.get('fullName'),
-                    email: formData.get('email'),
-                    gender: formData.get('gender'),
-                    dob: formData.get('dob'),
-                    age: formData.get('age'),
-                    phone: formData.get('phone'),
-                    education: formData.get('education'),
-                    position: formData.get('position'),
-                    dateApplied: new Date().toISOString(),
-                    status: 'New',
-                    resumeData: result.resumeData,
-                    resumeFileName: result.resumeFileName
-                });
+                const resumeFile = formData.get('resume');
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    applications.unshift({
+                        fullName: formData.get('fullName'),
+                        email: formData.get('email'),
+                        gender: formData.get('gender'),
+                        dob: formData.get('dob'),
+                        age: formData.get('age'),
+                        phone: formData.get('phone'),
+                        education: formData.get('education'),
+                        position: formData.get('position'),
+                        dateApplied: new Date().toISOString(),
+                        status: 'New',
+                        resumeData: e.target.result,
+                        resumeFileName: resumeFile.name
+                    });
+                    localStorage.setItem('applications', JSON.stringify(applications));
+                };
+                
+                if (resumeFile) {
+                    reader.readAsDataURL(resumeFile);
+                }
                 localStorage.setItem('applications', JSON.stringify(applications));
 
                 // Close modal and show success message
