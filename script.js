@@ -69,16 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     status: 'New'
                 };
 
-                // Handle form submission with file upload
-                const formDataToSend = new FormData();
-                Object.entries(formData).forEach(([key, value]) => {
-                    formDataToSend.append(key, value);
-                });
-
-                const resumeFile = document.getElementById('resume').files[0];
-                if (resumeFile) {
-                    formDataToSend.append('resume', resumeFile);
-                }
+                // Get form data including file
+                const formDataToSend = new FormData(applicationForm);
+                formDataToSend.append('form-name', 'job-application');
+                formDataToSend.append('dateApplied', new Date().toISOString());
+                formDataToSend.append('status', 'New');
+                
+                // Submit the form
                 saveApplication(formDataToSend);
             });
         }
@@ -100,9 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Submit form data to Netlify
                 const response = await fetch('/', {
                     method: 'POST',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
                     body: formData
                 });
 
