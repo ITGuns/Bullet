@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LTGC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('Background.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* Consent Modal Styles */
+        .consent-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .consent-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            border-top: 4px solid #800000;
+        }
+
+        .consent-text {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .consent-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .consent-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .btn-agree, .btn-cancel {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn-agree {
+            background-color: #800000;
+            color: white;
+        }
+
+        .btn-agree:hover {
+            background-color: #600000;
+        }
+
+        .btn-cancel {
+            background-color: #e1e1e1;
+            color: #333;
+        }
+
+        .btn-cancel:hover {
+            background-color: #d1d1d1;
+        }
+        
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 1200px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-wrapper {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: none;
+        }
+        
+        .carousel-container {
+            border: none;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .carousel-slide {
+            background: transparent;
+            box-shadow: none;
+            position: relative;
+        }
+
+        .slide-content {
+            color: #000000;
+            text-shadow: none;
+            position: absolute;
+            bottom: -100px; /* Move content down */
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+
+        .slide-content h1 {
+            color: #000000;
+            font-weight: 600;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .slide-content p {
+            color: #000000;
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        #home.hero {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        section#home {
+            box-shadow: none;
+            background: transparent;
+        }
+
+        .contact {
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact h2 {
+            margin-bottom: 30px;
+        }
+
+        .vision-mission h3 {
+            color: #4d0000;
+            font-size: 2.5em;
+            margin: 30px 0 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            text-align: center; /* Added to center the headings */
+        }
+
+        .vision-mission {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center; /* Added to center all text in vision-mission */
+        }
+
+        .vision-mission p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            padding: 0 20px;
+            text-align: center; /* Added to ensure paragraphs are centered */
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+
+        .slide img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        section#home {
+            padding: 20px 0;
+            margin: 0 auto;
+            max-width: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 20px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid rgba(128, 0, 0, 0.6);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #800000;
+            transform: scale(1.2);
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+
+        .slide img {
+            width: auto;
+            height: auto;
+            max-width: 1600px;  /* Increased from previous value */
+            max-height: 600px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        section#home {
+            padding: 60px 0 40px 0;  /* Reduced padding */
+            margin: 0 auto;
+            max-width: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .carousel {
+            position: relative;
+            width: 50%;  /* Reduced from 60% */
+            height: 85vh;
+            max-height: 700px;
+            overflow: hidden;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .slide img {
+            width: 1200px;
+            height: 600px;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-dots {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 20px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(128, 0, 0, 0.6);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #800000; /* Solid maroon for active dot */
+            transform: scale(1.2);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+
+        .slide img {
+            width: auto;
+            height: auto;
+            max-width: 1600px;  /* Increased from previous value */
+            max-height: 600px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        section#home {
+            padding: 60px 0 40px 0;  /* Reduced padding */
+            margin: 0 auto;
+            max-width: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .carousel {
+            position: relative;
+            width: 85%;
+            height: 85vh;
+            max-height: 700px;
+            overflow: hidden;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 1200px;  /* Fixed width */
+            height: 600px;  /* Fixed height */
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .navbar {
+                margin-bottom: 80px;  /* Increased margin bottom */
+            }
+        
+            section#home {
+                padding: 40px 0;  /* Adjusted padding */
+                margin-top: 40px;  /* Added margin top */
+                margin-bottom: 40px;
+                max-width: 100%;
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 90vh;
+            }
+
+        /* Remove the prev/next button styles */
+            .prev, .next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                padding: 20px;
+                cursor: pointer;
+                border: none;
+                font-size: 24px;
+                border-radius: 50%;
+                transition: background 0.3s ease;
+                z-index: 100;
+            }
+
+            .prev:hover, .next:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+            .prev {
+                left: 20px;
+            }
+
+            .next {
+                right: 20px;
+            }
+            .carousel-dots {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 10px;
+                z-index: 100;
+                padding: 10px;
+            }
+            
+            .dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: rgba(128, 0, 0, 0.5); /* Maroon with transparency */
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+            
+            .dot.active {
+                background: #800000; /* Solid maroon for active dot */
+                transform: scale(1.2);
+            }
+
+
+            .logo-row {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-wrap: nowrap;
+                margin-top: 40px;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .partner-logo {
+                width: 100px;
+                height: auto;
+                object-fit: contain;
+                transition: transform 0.3s ease;
+            }
+
+            .partner-logo:hover {
+                transform: scale(1.1);
+            }
+
+            .lt-logo {
+                text-align: center;
+                margin: 0px 0;  /* Reduced from 5px */
+            }
+
+            .about h2 {
+                margin-bottom: 0px;  /* Added to reduce gap */
+            }
+
+            .about p {
+                margin-top: 10px;  /* Added to center the about us paragraph */
+            }
+
+            .lt-logo img {
+                width: 400px;
+                height: auto;
+                object-fit: contain;
+                transition: transform 0.3s ease;
+            }
+
+            .lt-logo img:hover {
+                transform: scale(1.05);
+            }
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="Company Logo 2.png" alt="Company Logo" class="company-logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="carousel">
+            <div class="slide active">
+                <img src="1.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="2.png" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="3.png" alt="Slide 3">
+            </div>
+            <div class="slide">
+                <img src="4.png" alt="Slide 4">
+            </div>
+            <div class="slide">
+                <img src="5.png" alt="Slide 5">
+            </div>
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <div class="lt-logo">
+            <img src="LT.png" alt="LT Logo">
+        </div>
+        <p>The Lemana-Toledo Group of Companies represents a
+            dynamic and forward-thinking conglomerate with
+            diversified business interests across the food and
+            beverage, retail, travel, and digital services industries.
+            Built on the foundation of innovation, customer
+            satisfaction, and operational excellence, the group has
+            positioned itself as a significant player in its respective
+            fields, catering to local and regional markets with a
+            keen eye on expansion and growth opportunities.With a focus on community impact, employment generation, and sustainable
+            practices, the Lemana-Toledo Group of Companies continues to create
+            meaningful value for its customers, stakeholders, and the communities it serves</p>
+        
+        <div class="vision-mission">
+            <h3>VISION</h3>
+            <p>To attract, empower, and retain top talent, creating a high-performance workforce aligned with company goals. Serve as a strategic partner to promote organizational success through a culture of innovation, diversity, and continuous development.</p>
+            
+            <h3>MISSION</h3>
+            <p>To provide strategic HR solutions and administrative support that promote a positive work environment, ensure legal compliance, and strengthen policies for sustainable growth. Encourage outstanding performance, continuous improvement, collaboration, and a healthy work-life balance.</p>
+            
+            <div class="logo-row">
+                <img src="logo1.png" alt="Partner Logo 1" class="partner-logo">
+                <img src="logo2.png" alt="Partner Logo 2" class="partner-logo">
+                <img src="logo3.png" alt="Partner Logo 3" class="partner-logo">
+                <img src="logo4.png" alt="Partner Logo 4" class="partner-logo">
+                <img src="logo5.png" alt="Partner Logo 5" class="partner-logo">
+                <img src="logo6.png" alt="Partner Logo 6" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <section id="careers" class="careers">
+        <h2>Career Opportunities</h2>
+        <div class="application-form">
+            <h3>Apply Now</h3>
+            <form id="applicationForm" data-netlify="true" name="job-application" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="form-name" value="job-application">
+                <div class="form-group">
+                    <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="dob" name="dob" placeholder="Date of Birth" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="age" name="age" placeholder="Age" min="18" max="65" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="address" name="address" placeholder="Complete Address" required rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                </div>
+                
+                <div class="form-group">
+                    <select id="education" name="education" required>
+                        <option value="" disabled selected>Select Educational Attainment</option>
+                        <option value="highschool">High School Graduate</option>
+                        <option value="vocational">Vocational/Technical Course</option>
+                        <option value="college">College Level</option>
+                        <option value="bachelor">Bachelor's Degree</option>
+                        <option value="master">Master's Degree</option>
+                        <option value="doctorate">Doctorate Degree</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select id="position" required>
+                        <option value="" disabled selected>Select Position</option>
+                        <option value="HRAD">HRAD Related</option>
+                        <option value="Finance">Finance Related</option>
+                        <option value="IT">IT Related</option>
+                        <option value="Marketing">Marketing Related</option>
+                        <option value="Restaurant">Restaurant Related</option>
+                        <option value="Tourism">Tourism Related</option>
+                        <option value="any vacant">Any Aplicable</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="resume">Upload Resume (PDF/DOC)</label>
+                    <input type="file" id="resume" accept=".pdf,.doc,.docx,.jpeg,.jpg,.png" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>Email: hrad.resumeapplication@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>Phone: 0917-876-4440</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Address: 2nd Floor, Villarico Building,<br>Purok 5, Lanao Kidapawan City</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/share/164AYaRMUv/"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="footer-section office-hours">
+                <h3>Office Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lemana-Toledo Group of Companies. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Add this before the closing body tag -->
+    <div id="consentModal" class="modal">
+        <div class="modal-content">
+            <h2>Consent for Data Collection and Processing</h2>
+            <div class="consent-text">
+                I authorize Lemana-Toledo Group of Companies HRAD to collect, process, and retain my personal data for recruitment and employment purposes, in accordance with applicable laws. My information may be shared with relevant parties for hiring evaluation, and all reasonable measures will be taken to protect its confidentiality. I understand that I can withdraw my consent anytime, subject to legal and policy requirements. I confirm that the information provided is accurate and true.
+            </div>
+            <div class="consent-checkbox">
+                <input type="checkbox" id="consentCheckbox">
+                <label for="consentCheckbox">By submitting my application, I agree to these terms.</label>
+            </div>
+            <div class="consent-buttons">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-agree">Submit Application</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="validation.js"></script>
+    <!-- Replace the existing script with this updated version -->
+    <script>
+        // Show consent modal when form is submitted
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('consentModal').style.display = 'flex';
+        });
+
+        // Handle consent modal buttons
+        document.getElementById('cancelConsent').addEventListener('click', function() {
+            document.getElementById('consentModal').style.display = 'none';
+            document.getElementById('consentCheckbox').checked = false;
+        });
+
+        document.getElementById('agreeConsent').addEventListener('click', function() {
+            const consentCheckbox = document.getElementById('consentCheckbox');
+            if (!consentCheckbox.checked) {
+                alert('Please check the consent checkbox to proceed.');
+                return;
+            }
+            
+            // Submit the form using Netlify's form handling
+            document.getElementById('applicationForm').submit();
+        });
+    </script>
+    <!-- Add before closing body tag -->
+        <!-- Remove all existing scripts at the bottom except these -->
+            <script src="validation.js"></script>
+            <script src="script.js"></script>
+        </body>
+        </html>

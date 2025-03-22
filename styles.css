@@ -1,0 +1,6134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: url('Background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Make sure sections have transparent backgrounds */
+section {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 1200px;
+}
+
+.hero {
+    background: transparent;
+}
+
+.carousel-wrapper {
+    background: rgba(255, 255, 255, 0);
+}
+
+.hero {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px;
+    background: #ffffff;
+}
+
+section {
+    background: #ffffff;
+    padding: 40px 20px;
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 30px 15px;
+        margin: 10px;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 70vh;
+        margin-top: 60px;
+    }
+
+    form {
+        width: 100%;
+        padding: 15px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .card {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+.carousel-wrapper {
+    background: rgba(255, 255, 255, 0);
+}
+
+/* Enhanced Navbar Styling */
+.navbar {
+    background: #800000;
+    padding: 8px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .company-logo {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar .company-logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar .nav-links li a:hover {
+    color: #f8f8f8;
+}
+
+.navbar .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar .nav-links li a:hover::after {
+    width: 70%;
+}
+
+/* Responsive adjustments */
+/* Hamburger menu icon */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #800000;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .hr-portal {
+        margin: 10px 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 768px) {
+    .company-logo {
+        height: 40px;
+    }
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 30px;
+    justify-content: flex-end;
+}
+
+.nav-links li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.hr-portal {
+    background-color: #600000;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 20px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.hr-portal:hover {
+    background-color: #500000;
+    color: #ffffff;
+}
+
+.hr-portal:hover::after {
+    display: none;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+    color: #ffb3b3; /* Light maroon/pink color */
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    background: #ffb3b3; /* Matching underline color */
+}
+
+/* Update HR Portal hover state */
+.hr-portal:hover {
+    background-color: #990000;
+    color: #ffb3b3;
+}
+
+.hr-portal:hover::after {
+    display: none;
+}
+
+.nav-links a {
+    color: #ffcccc;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 5px 0;
+    }
+    
+    .nav-links {
+        padding: 10px;
+        justify-content: center;
+        gap: 1rem;
+    }
+}.logo {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Hero section with animated gradient */
+.hero {
+    background: linear-gradient(-45deg, #2c3e50, #3498db, #2980b9, #34495e);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Mobile responsive design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: linear-gradient(90deg, #d65050, #d45a5a);
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-links li {
+        display: block;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .application-form {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+.nav-links {
+    float: right;
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f19797;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1920x1080/?office');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 60px;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+.about, .careers, .contact {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact {
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.contact h2 {
+    color: #800000;
+    font-size: 42px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-item i {
+    font-size: 1.5em;
+    color: #600000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover i {
+    transform: scale(1.1);
+    color: #800000;
+}
+
+.contact-item p {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.careers {
+    padding: 60px 20px;
+    background: #f8f9fa;
+}
+
+.application-form {
+    font-family: 'Poppins', sans-serif;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 35px;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    border-top: 4px solid #800000;
+}
+
+.application-form h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #800000;
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #800000;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Add this at the top of your HTML file in the head section */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 5px 0; /* Reduced bottom margin from 10px to 5px */
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    margin-bottom: 0px; /* Added to reduce space between logo and text */
+}
+
+.lt-logo img:hover {
+    transform: scale(1.05);
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 700px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 2px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2, .about h3 {
+    text-align: center;
+    color: #800000;
+    font-size: 2.8em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.lt-logo {
+    margin: 0 0 2px 0;
+    animation: fadeInScale 1.2s ease-out;
+    position: relative;
+}
+
+.lt-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lt-logo:hover::after {
+    opacity: 1;
+}
+
+.lt-logo img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.lt-logo img:hover {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.about p {
+    color: #000000;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 5px auto;
+    text-align: center;
+}
+.form-group textarea {
+    min-height: 80px;
+    max-height: 150px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+button[type="submit"] {
+    padding: 14px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .application-form {
+        padding: 25px;
+        margin: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+}.form-group input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.form-group input[type="date"]:focus {
+    border-color: #800000;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.form-group select#gender:focus {
+    border-color: #800000;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #800000, #990000);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.error-field {
+    border-color: #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+.error-field:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #990000, #800000);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.2);
+}
+.admin-body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    padding: 20px;
+    margin-top: 70px;
+}
+
+.login-form {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    border-top: 4px solid #800000;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: #800000;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.login-form .form-group {
+    margin-bottom: 25px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #800000;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.login-form button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #800000, #990000);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-form button:hover {
+    background: linear-gradient(135deg, #990000, #800000);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.2);
+}
+
+.back-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: rgb(255, 255, 255);
+}
+.about, .careers {
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.about {
+    background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://source.unsplash.com/random/1920x1080/?innovation');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.about h2, .careers h2 {
+    font-size: 42px;
+    color: #800000;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.about h2::after, .careers h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #800000, transparent);
+}
+
+.about p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    position: relative;
+}
+
+.careers {
+    background: #f8f9fa;
+}
+
+.careers h2 {
+    margin-bottom: 50px;
+}
+
+/* Add subtle animation */
+.about h2, .careers h2 {
+    animation: fadeInDown 1s ease-out;
+}
+
+.about p {
+    animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.main-footer {
+    background: linear-gradient(to bottom, #800000, #4d0000);
+    color: #fff;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.footer-section.office-hours p {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.footer-section.office-hours p:before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 10px;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section.office-hours p:nth-child(2):before {
+    content: '\f017';
+}
+
+.footer-section.office-hours p:nth-child(3):before,
+.footer-section.office-hours p:nth-child(4):before {
+    content: '\f00d';
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-section.office-hours p:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+    padding-left: 5px;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}.hero {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.carousel-wrapper {
+    width: 90%;
+    height: 90vh;
+    max-height: 800px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Add these styles to your existing CSS file */
+.consent-group {
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.consent-group input[type="checkbox"] {
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.consent-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.slide-content {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.slide-content h1 {
+    color: #800000;
+    -webkit-text-fill-color: #800000;
+    background: none;
+}
+
+.slide-content p {
+    color: #333;
+}
+
+.carousel-slide img {
+    width: auto;
+    height: auto;
+    max-width: 1800px;
+    max-height: 800px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.slide-content {
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+}
+
+.slide-content h1 {
+    font-size: 3rem;
+}
+
+.slide-content p {
+    font-size: 1.4rem;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-content {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+body {
+    background: linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255));
+    min-height: 100vh;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 450px;
+}
+
+.slide-content {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    background: rgba(0, 0, 0, 0.256);
+    backdrop-filter: blur(8px);
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0);
+}
+
+.slide-content h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffffff, #e6e6e6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slide-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-nav {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.nav-btn {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(128, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-btn { 
+    left: 20px; 
+}
+
+.next-btn { 
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+}
+
+.nav-btn:hover {
+    background: #800000; /* Changed to solid maroon */
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(128, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;
+    }
+    
+    .slide-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .slide-content p {
+        font-size: 1rem;
+    }
+    
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+    .prev-btn { left: -60px; }
+    .next-btn { right: -60px; }
+
+    @media (max-width: 768px) {
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+    }
+}
+
+.social-links i {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #ffffff; /* This ensures the icons are white to match the footer text */
+}
+
+.social-links a:hover i {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+    color: #e6e6e6; /* Slightly lighter on hover */
+}
+/* Glass morphism effect for About section */
+section#about {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.vision-mission {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.vision-mission h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+.vision-mission p {
+    color: #000000;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.logo-row {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for Careers section */
+section#careers {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.application-form {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.careers h2 {
+    color: #800000;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.8em;
+    font-weight: 600;
+}
+
+.application-form h3 {
+    color: #4d0000;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+/* Add these styles for the consent modal */
+/* Consent Modal Styles */
+.consent-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+}
+
+.consent-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    border-top: 4px solid #800000;
+    animation: modalFadeIn 0.4s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.consent-content h3 {
+    color: #800000;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.consent-text {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.consent-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.consent-checkbox label {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.consent-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.consent-buttons button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-agree {
+    background-color: #800000;
+    color: white;
+}
+
+.btn-agree:hover {
+    background-color: #600000;
+}
+
+.btn-cancel {
+    background-color: #e1e1e1;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background-color: #d1d1d1;
+}
+
+.admin-link {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.admin-button {
+    padding: 10px 20px;
+    background-color: #800000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.admin-button:hover {
+    background-color: #600000;
+}
+/* ... existing styles ... */
+
+.consent-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+.consent-modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.consent-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+}
+
+.consent-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.consent-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.btn-cancel, .btn-agree {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background-color: #ccc;
+}
+
+.btn-agree {
+    background-color: #800000;
+    color: white;
+}
