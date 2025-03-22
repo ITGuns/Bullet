@@ -1,7 +1,6 @@
 [build]
-  base = "/"
-  publish = "src"
-  command = ""  # Remove build command since it's a static site
+  publish = "."  # Changed from "src" to "." to publish from root directory
+  command = ""
 
 [[redirects]]
   from = "/*"
