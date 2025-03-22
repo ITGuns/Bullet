@@ -97,10 +97,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         async function saveApplication(formData) {
             try {
-                // Save to database and update dashboard
-                const response = await fetch('/api/applications', {
+                // Submit form data to Netlify
+                const response = await fetch('/', {
                     method: 'POST',
-                    body: formData
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
                 });
 
                 if (!response.ok) {
