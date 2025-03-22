@@ -100,8 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Submit form data to Netlify
                 const response = await fetch('/', {
                     method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
+                    body: formData
                 });
 
                 if (!response.ok) {
