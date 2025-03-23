@@ -8,14 +8,16 @@ const config = {
     port: process.env.PORT || 3000,
     env: process.env.NODE_ENV || 'development'
   },
-  server: {
-    port: process.env.PORT || 3000,
-    env: process.env.NODE_ENV || 'development'
-  },
   database: {
-    client: process.env.DB_CLIENT || 'sqlite3',
-    connection: process.env.DATABASE_URL || {
-      filename: './data/hr_applications.db'
+    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/hr_app',
+    options: {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      connectTimeoutMS: 10000,
+      socketTimeoutMS: 45000,
+      family: 4,
+      retryWrites: true,
+      maxPoolSize: 50
     }
   },
   cors: {
