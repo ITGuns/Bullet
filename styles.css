@@ -464,10 +464,13 @@ section {
         display: none;
         width: 100%;
         position: absolute;
-        top: 100%;
+        top: 60px;
         left: 0;
         background: #800000;
         padding: 1rem;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
     }
 
     .nav-links.active {
