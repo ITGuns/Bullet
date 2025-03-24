@@ -270,22 +270,21 @@ section {
     }
 
     .nav-links {
-        display: none;
-        width: 100%;
         position: fixed;
         top: 60px;
         left: 0;
+        width: 100%;
         background: #800000;
         flex-direction: column;
         padding: 16px;
         gap: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        display: none;
     }
 
     .nav-links.active {
         display: flex;
-        transform: translateY(0);
     }
 
     .nav-links li {
@@ -303,20 +302,6 @@ section {
 
     .nav-links li a:hover {
         background: rgba(255, 255, 255, 0.2);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links li a {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
     }
 
     .hr-portal {
@@ -5953,13 +5938,8 @@ body {
         width: 35px;
         height: 35px;
     }
-    .prev-btn { left: -60px; }
-    .next-btn { right: -60px; }
-
-    @media (max-width: 768px) {
-        .prev-btn { left: 10px; }
-        .next-btn { right: 10px; }
-    }
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
 }
 
 .social-links i {
