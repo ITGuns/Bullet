@@ -223,7 +223,6 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transform: scale(0.95);
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
             display: flex;
             align-items: center;
@@ -414,87 +413,99 @@
             align-items: center;
         }
 
-        .slide img {
-            width: 1200px;  /* Fixed width */
-            height: 600px;  /* Fixed height */
-            object-fit: contain;
-            margin: 0 auto;
-        }
-
-        .navbar {
-                margin-bottom: 80px;  /* Increased margin bottom */
+        @media (max-width: 480px) {
+            .carousel {
+                width: 95%;
+                height: 50vh;
+                max-height: 400px;
             }
-        
-            section#home {
-                padding: 40px 0;  /* Adjusted padding */
-                margin-top: 40px;  /* Added margin top */
-                margin-bottom: 40px;
-                max-width: 100%;
+            
+            .slide img {
                 width: 100%;
-                overflow: hidden;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 90vh;
+                height: auto;
+                max-height: 300px;
+            }
+        }
+            .slide img {
+                width: 1200px;  /* Fixed width */
+                height: 600px;  /* Fixed height */
+                object-fit: contain;
+                margin: 0 auto;
             }
 
-        /* Remove the prev/next button styles */
-            .prev, .next {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.6);
-                color: white;
-                padding: 20px;
-                cursor: pointer;
-                border: none;
-                font-size: 24px;
-                border-radius: 50%;
-                transition: background 0.3s ease;
-                z-index: 100;
-            }
-
-            .prev:hover, .next:hover {
-                background: rgba(0, 0, 0, 0.8);
-            }
-            .prev {
-                left: 20px;
-            }
-
-            .next {
-                right: 20px;
-            }
-            .carousel-dots {
-                position: absolute;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                gap: 10px;
-                z-index: 100;
-                padding: 10px;
-            }
+            .navbar {
+                    margin-bottom: 80px;  /* Increased margin bottom */
+                }
             
-            .dot {
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-                background: rgba(128, 0, 0, 0.5); /* Maroon with transparency */
-                cursor: pointer;
-                transition: background 0.3s ease;
-            }
-            
-            .dot.active {
-                background: #800000; /* Solid maroon for active dot */
-                transform: scale(1.2);
-            }
+                section#home {
+                    padding: 40px 0;  /* Adjusted padding */
+                    margin-top: 40px;  /* Added margin top */
+                    margin-bottom: 40px;
+                    max-width: 100%;
+                    width: 100%;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 90vh;
+                }
 
+            /* Remove the prev/next button styles */
+                .prev, .next {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(0, 0, 0, 0.6);
+                    color: white;
+                    padding: 20px;
+                    cursor: pointer;
+                    border: none;
+                    font-size: 24px;
+                    border-radius: 50%;
+                    transition: background 0.3s ease;
+                    z-index: 100;
+                }
+
+                .prev:hover, .next:hover {
+                    background: rgba(0, 0, 0, 0.8);
+                }
+                .prev {
+                    left: 20px;
+                }
+
+                .next {
+                    right: 20px;
+                }
+                .carousel-dots {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    gap: 10px;
+                    z-index: 100;
+                    padding: 10px;
+                }
+                
+                .dot {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: rgba(128, 0, 0, 0.5); /* Maroon with transparency */
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+                }
+                
+                .dot.active {
+                    background: #800000; /* Solid maroon for active dot */
+                    transform: scale(1.2);
+                }
 
             .logo-row {
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
-                flex-wrap: nowrap;
+                flex-wrap: wrap;
                 margin-top: 40px;
                 padding: 20px;
                 gap: 20px;
@@ -507,6 +518,16 @@
                 transition: transform 0.3s ease;
             }
 
+            @media (max-width: 480px) {
+                .logo-row {
+                    gap: 10px;
+                    padding: 10px;
+                }
+                
+                .partner-logo {
+                    width: 60px;
+                }
+            }
             .partner-logo:hover {
                 transform: scale(1.1);
             }
