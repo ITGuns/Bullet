@@ -2,12 +2,25 @@ import { supabase } from './supabase-config.js'
 
 async function loadApplications() {
     try {
+        console.log('Fetching applications...');
         const { data, error } = await supabase
             .from('applications')
             .select('*')
             .order('created_at', { ascending: false });
 
+        console.log('Fetched data:', data); // Debug log
+        console.log('Error if any:', error); // Debug log
+
         if (error) throw error;
+
+        if (!data || data.length === 0) {
+            document.getElementById('applicationsTableBody').innerHTML = `
+                <tr>
+                    <td colspan="5" style="text-align: center;">No applications found</td>
+                </tr>
+            `;
+            return;
+        }
 
         // Update statistics
         document.getElementById('totalApplications').textContent = data.length;
@@ -17,6 +30,11 @@ async function loadApplications() {
         displayApplications(data);
     } catch (error) {
         console.error('Error loading applications:', error);
+        document.getElementById('applicationsTableBody').innerHTML = `
+            <tr>
+                <td colspan="5" style="text-align: center;">Error loading applications</td>
+            </tr>
+        `;
     }
 }
 
@@ -24,9 +42,9 @@ function displayApplications(applications) {
     const tableBody = document.getElementById('applicationsTableBody');
     tableBody.innerHTML = applications.map(app => `
         <tr>
-            <td>${app.full_name}</td>
-            <td>${app.position}</td>
-            <td>${new Date(app.created_at).toLocaleDateString()}</td>
+            <td>${app.full_name || 'N/A'}</td>
+            <td>${app.position || 'N/A'}</td>
+            <td>${app.created_at ? new Date(app.created_at).toLocaleDateString() : 'N/A'}</td>
             <td>
                 <select onchange="updateStatus('${app.id}', this.value)" class="status-select">
                     <option value="pending" ${app.status === 'pending' ? 'selected' : ''}>Pending</option>
@@ -37,9 +55,12 @@ function displayApplications(applications) {
                 </select>
             </td>
             <td>
-                <a href="${app.resume_url}" target="_blank" class="action-btn download-btn">
-                    <i class="fas fa-file-download"></i>
-                </a>
+                ${app.resume_url ? 
+                    `<a href="${app.resume_url}" target="_blank" class="action-btn download-btn">
+                        <i class="fas fa-file-download"></i>
+                    </a>` : 
+                    'No resume'
+                }
             </td>
         </tr>
     `).join('');
