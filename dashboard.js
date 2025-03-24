@@ -8,12 +8,12 @@ async function loadApplications() {
             .order('created_at', { ascending: false });
 
         if (error) throw error;
-        
+
         // Update statistics
         document.getElementById('totalApplications').textContent = data.length;
         document.getElementById('newApplications').textContent = data.filter(app => app.status === 'pending').length;
         document.getElementById('shortlistedApplications').textContent = data.filter(app => app.status === 'reviewing').length;
-        
+
         displayApplications(data);
     } catch (error) {
         console.error('Error loading applications:', error);
@@ -37,9 +37,6 @@ function displayApplications(applications) {
                 </select>
             </td>
             <td>
-                <button onclick="viewApplication('${app.id}')" class="action-btn view-btn">
-                    <i class="fas fa-eye"></i>
-                </button>
                 <a href="${app.resume_url}" target="_blank" class="action-btn download-btn">
                     <i class="fas fa-file-download"></i>
                 </a>
@@ -56,7 +53,7 @@ async function updateStatus(applicationId, newStatus) {
             .eq('id', applicationId);
 
         if (error) throw error;
-        loadApplications();
+        loadApplications(); // Refresh the display after update
     } catch (error) {
         console.error('Error updating status:', error);
         alert('Failed to update status. Please try again.');
