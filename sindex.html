@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>Job Application</title>
 </head>
 <body>
     <form id="applicationForm">
-        <input type="text" name="fullName" required>
-        <input type="email" name="email" required>
-        <input type="tel" name="phone" required>
+        <input type="text" name="fullName" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone" required>
         <select name="position" required>
-            <!-- your options -->
+            <option value="">Select Position</option>
+            <option value="IT Related">IT Related</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Finance">Finance</option>
         </select>
         <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
         <button type="submit">Submit Application</button>
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script type="module" src="js/form-handler.js"></script>
 </body>
 </html>
