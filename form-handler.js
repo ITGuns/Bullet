@@ -6,6 +6,10 @@ async function handleApplicationSubmit(event) {
     const formData = new FormData(event.target);
     const file = formData.get('resume');
 
+    // Add debug logs
+    console.log('Form data:', Object.fromEntries(formData));
+    console.log('Resume file:', file);
+
     try {
         // Upload resume file
         const fileExt = file.name.split('.').pop();
