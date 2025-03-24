@@ -274,6 +274,7 @@ section {
         top: 60px;
         left: 0;
         width: 100%;
+        max-width: 100%;
         background: #800000;
         flex-direction: column;
         padding: 16px;
@@ -282,6 +283,8 @@ section {
         transition: all 0.3s ease-in-out;
         display: none;
         z-index: 1000;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     .nav-links.active {
@@ -302,6 +305,10 @@ section {
         text-align: center;
         font-size: 16px;
         margin: 5px 0;
+        box-sizing: border-box;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .nav-links li a:hover {
@@ -420,12 +427,15 @@ section {
         top: 60px;
         left: 0;
         width: 100%;
+        max-width: 100%;
         background: #800000;
         flex-direction: column;
         padding: 16px;
         gap: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 1000;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
 }.logo {
     color: #ffffff;
@@ -463,6 +473,7 @@ section {
     .nav-links {
         display: none;
         width: 100%;
+        max-width: 100%;
         position: absolute;
         top: 60px;
         left: 0;
@@ -471,6 +482,8 @@ section {
         flex-direction: column;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 1000;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     .nav-links.active {
@@ -482,6 +495,7 @@ section {
         width: 100%;
         margin: 8px 0;
         text-align: center;
+        box-sizing: border-box;
     }
 
     .menu-toggle {
