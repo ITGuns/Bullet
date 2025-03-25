@@ -66,10 +66,10 @@
 
     <!-- Update scripts at the bottom -->
     <script>
-        // Clear storage to fix quota issue
+        // Clear only localStorage to fix quota issue while preserving login session
         try {
             localStorage.clear();
-            sessionStorage.clear();
+            // Don't clear sessionStorage as it contains authentication data
         } catch (e) {
             console.log('Storage cleanup:', e);
         }
