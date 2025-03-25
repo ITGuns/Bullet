@@ -5,6 +5,7 @@ const supabaseUrl = 'https://siyulhaedbbhvwggttkl.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpeXVsaGFlZGJiaHZ3Z2d0dGtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3OTE5MTIsImV4cCI6MjA1ODM2NzkxMn0.CgOAjYqeZLnJIZOVx7gVkoHQjfiuu-Ai6IKhlJ95ldE'
 const supabase = createClient(supabaseUrl, supabaseKey)
 
+// Function to load and display applications
 async function loadApplications() {
     try {
         console.log('Fetching applications...');
@@ -13,18 +14,19 @@ async function loadApplications() {
             .select('*')
             .order('created_at', { ascending: false });
 
-        console.log('Fetch result:', { data, error });
-
         if (error) {
             console.error('Error fetching applications:', error);
             return;
         }
 
+        console.log('Applications data:', data);
+
         // Update statistics
         document.getElementById('totalApplications').textContent = data ? data.length : 0;
         document.getElementById('newApplications').textContent = data ? data.filter(app => app.status === 'pending').length : 0;
-        document.getElementById('shortlistedApplications').textContent = data ? data.filter(app => app.status === 'reviewing').length : 0;
+        document.getElementById('shortlistedApplications').textContent = data ? data.filter(app => app.status === 'shortlisted').length : 0;
 
+        // Update table
         const tableBody = document.getElementById('applicationsTableBody');
         if (!data || data.length === 0) {
             tableBody.innerHTML = '<tr><td colspan="5" class="text-center">No applications found</td></tr>';
@@ -35,36 +37,29 @@ async function loadApplications() {
             <tr>
                 <td>${app.full_name || 'N/A'}</td>
                 <td>${app.position || 'N/A'}</td>
-                <td>${app.created_at ? new Date(app.created_at).toLocaleDateString() : 'N/A'}</td>
+                <td>${new Date(app.created_at).toLocaleDateString()}</td>
                 <td>
-                    <select onchange="updateStatus('${app.id}', this.value)">
+                    <select onchange="updateApplicationStatus('${app.id}', this.value)">
                         <option value="pending" ${app.status === 'pending' ? 'selected' : ''}>Pending</option>
-                        <option value="reviewing" ${app.status === 'reviewing' ? 'selected' : ''}>Reviewing</option>
-                        <option value="interviewed" ${app.status === 'interviewed' ? 'selected' : ''}>Interviewed</option>
-                        <option value="accepted" ${app.status === 'accepted' ? 'selected' : ''}>Accepted</option>
+                        <option value="shortlisted" ${app.status === 'shortlisted' ? 'selected' : ''}>Shortlisted</option>
                         <option value="rejected" ${app.status === 'rejected' ? 'selected' : ''}>Rejected</option>
                     </select>
                 </td>
                 <td>
-                    <a href="${app.resume_url}" target="_blank" class="action-btn">
+                    <a href="${app.resume_url}" target="_blank" class="action-btn" title="Download Resume">
                         <i class="fas fa-download"></i>
                     </a>
                 </td>
             </tr>
         `).join('');
+
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error loading applications:', error);
     }
 }
 
-// Load applications when page loads
-document.addEventListener('DOMContentLoaded', loadApplications);
-
-// Make functions available globally
-window.updateStatus = updateStatus;
-window.downloadAllApplications = downloadAllApplications;
-
-async function updateStatus(id, status) {
+// Function to update application status
+async function updateApplicationStatus(id, status) {
     try {
         const { error } = await supabase
             .from('applications')
@@ -72,14 +67,14 @@ async function updateStatus(id, status) {
             .eq('id', id);
 
         if (error) throw error;
-        loadApplications(); // Refresh the display
+        await loadApplications(); // Reload the data
     } catch (error) {
         console.error('Error updating status:', error);
     }
 }
 
-// Handle download all
-window.downloadAllApplications = async function() {
+// Function to download all applications
+async function downloadAllApplications() {
     try {
         const { data, error } = await supabase
             .from('applications')
@@ -89,8 +84,8 @@ window.downloadAllApplications = async function() {
         if (error) throw error;
 
         const csvContent = "data:text/csv;charset=utf-8," 
-            + "Name,Position,Email,Phone,Status,Date Applied\n"
-            + data.map(app => `${app.full_name},${app.position},${app.email},${app.phone},${app.status},${new Date(app.created_at).toLocaleDateString()}`).join("\n");
+            + "Name,Email,Phone,Position,Status,Date Applied\n"
+            + data.map(app => `${app.full_name},${app.email},${app.phone},${app.position},${app.status},${new Date(app.created_at).toLocaleDateString()}`).join("\n");
 
         const link = document.createElement("a");
         link.setAttribute("href", encodeURI(csvContent));
@@ -101,4 +96,11 @@ window.downloadAllApplications = async function() {
     } catch (error) {
         console.error('Error downloading applications:', error);
     }
-};
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', loadApplications);
+
+// Make functions globally available
+window.updateApplicationStatus = updateApplicationStatus;
+window.downloadAllApplications = downloadAllApplications;
