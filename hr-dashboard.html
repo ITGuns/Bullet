@@ -7,31 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="hr-dashboard.css">
-    <!-- Add authentication check at the start -->
-    <!-- Update the authentication script -->
-    <script>
-        window.onload = function() {
-            // Check both authentication flags
-            if (!sessionStorage.getItem('hrPortalAuth') || !sessionStorage.getItem('isLoggedIn')) {
-                window.location.href = 'admin.html';
-                return;
-            }
-            
-            // Update username display
-            const username = sessionStorage.getItem('hrUsername');
-            if (username) {
-                document.getElementById('username').textContent = `Welcome, ${username}`;
-            }
-        }
-
-        function logout() {
-            // Clear all session storage items
-            sessionStorage.removeItem('hrPortalAuth');
-            sessionStorage.removeItem('hrUsername');
-            sessionStorage.removeItem('isLoggedIn');
-            window.location.href = 'admin.html';
-        }
-    </script>
+    
+    <!-- Add Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="dashboard">
@@ -86,14 +64,36 @@
         </div>
     </div>
 
+    <!-- Update scripts at the bottom -->
     <script>
-        // Protect HR dashboard from unauthorized access
-        if (!sessionStorage.getItem('hrPortalAuth')) {
+        // Clear storage to fix quota issue
+        try {
+            localStorage.clear();
+            sessionStorage.clear();
+        } catch (e) {
+            console.log('Storage cleanup:', e);
+        }
+
+        // Authentication check
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!sessionStorage.getItem('hrPortalAuth') || !sessionStorage.getItem('isLoggedIn')) {
+                window.location.href = 'admin.html';
+                return;
+            }
+            
+            const username = sessionStorage.getItem('hrUsername');
+            if (username) {
+                document.getElementById('username').textContent = `Welcome, ${username}`;
+            }
+        });
+
+        function logout() {
+            sessionStorage.removeItem('hrPortalAuth');
+            sessionStorage.removeItem('hrUsername');
+            sessionStorage.removeItem('isLoggedIn');
             window.location.href = 'admin.html';
         }
     </script>
-    <!-- Before closing body tag -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script type="module" src="../js/dashboard.js"></script>
+    <script type="module" src="./js/dashboard.js"></script>
 </body>
 </html>
