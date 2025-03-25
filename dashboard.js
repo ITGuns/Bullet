@@ -1,11 +1,19 @@
-import { supabase } from './supabase-config.js'
+import { createClient } from '@supabase/supabase-js'
+
+// Initialize Supabase client
+const supabaseUrl = 'https://siyulhaedbbhvwggttkl.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpeXVsaGFlZGJiaHZ3Z2d0dGtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3OTE5MTIsImV4cCI6MjA1ODM2NzkxMn0.CgOAjYqeZLnJIZOVx7gVkoHQjfiuu-Ai6IKhlJ95ldE'
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 async function loadApplications() {
     try {
+        console.log('Fetching applications...');
         const { data, error } = await supabase
             .from('applications')
             .select('*')
             .order('created_at', { ascending: false });
+
+        console.log('Fetch result:', { data, error });
 
         if (error) {
             console.error('Error fetching applications:', error);
@@ -13,22 +21,21 @@ async function loadApplications() {
         }
 
         // Update statistics
-        document.getElementById('totalApplications').textContent = data.length;
-        document.getElementById('newApplications').textContent = data.filter(app => app.status === 'pending').length;
-        document.getElementById('shortlistedApplications').textContent = data.filter(app => app.status === 'reviewing').length;
+        document.getElementById('totalApplications').textContent = data ? data.length : 0;
+        document.getElementById('newApplications').textContent = data ? data.filter(app => app.status === 'pending').length : 0;
+        document.getElementById('shortlistedApplications').textContent = data ? data.filter(app => app.status === 'reviewing').length : 0;
 
-        // Update table
         const tableBody = document.getElementById('applicationsTableBody');
-        if (!data.length) {
+        if (!data || data.length === 0) {
             tableBody.innerHTML = '<tr><td colspan="5" class="text-center">No applications found</td></tr>';
             return;
         }
 
         tableBody.innerHTML = data.map(app => `
             <tr>
-                <td>${app.full_name}</td>
-                <td>${app.position}</td>
-                <td>${new Date(app.created_at).toLocaleDateString()}</td>
+                <td>${app.full_name || 'N/A'}</td>
+                <td>${app.position || 'N/A'}</td>
+                <td>${app.created_at ? new Date(app.created_at).toLocaleDateString() : 'N/A'}</td>
                 <td>
                     <select onchange="updateStatus('${app.id}', this.value)">
                         <option value="pending" ${app.status === 'pending' ? 'selected' : ''}>Pending</option>
@@ -50,6 +57,13 @@ async function loadApplications() {
     }
 }
 
+// Load applications when page loads
+document.addEventListener('DOMContentLoaded', loadApplications);
+
+// Make functions available globally
+window.updateStatus = updateStatus;
+window.downloadAllApplications = downloadAllApplications;
+
 async function updateStatus(id, status) {
     try {
         const { error } = await supabase
@@ -63,12 +77,6 @@ async function updateStatus(id, status) {
         console.error('Error updating status:', error);
     }
 }
-
-// Load applications when page loads
-document.addEventListener('DOMContentLoaded', loadApplications);
-
-// Make updateStatus available globally
-window.updateStatus = updateStatus;
 
 // Handle download all
 window.downloadAllApplications = async function() {
