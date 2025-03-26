@@ -329,7 +329,7 @@
     /* Navbar styles */
     .navbar {
         padding: 5px 15px;
-        height: 47px;
+        height: 48px;
         position: fixed;
         top: 0;
         left: 0;
@@ -342,7 +342,7 @@
         width: 100%;
         height: 40vh;
         max-height: 300px;
-        margin-top: 35px; /* Reduced from 45px to 35px */
+        margin-top: 30px; /* Reduced from 45px to 35px */
     }
 
     /* Adjust nav-links to match navbar */
@@ -352,7 +352,7 @@
 
     /* Adjust section spacing */
     .section {
-        margin-top: -15px;
+        margin-top: -20px;
     }
 }
 
