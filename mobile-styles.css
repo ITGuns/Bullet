@@ -26,22 +26,70 @@
     
     .menu-toggle {
         display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001;
     }
     
     .menu-toggle span {
+        height: 3px;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
         transition: all 0.3s ease;
     }
     
-    .menu-toggle span.active:nth-child(1) {
+    .menu-toggle.active span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
     
-    .menu-toggle span.active:nth-child(2) {
+    .menu-toggle.active span:nth-child(2) {
         opacity: 0;
     }
     
-    .menu-toggle span.active:nth-child(3) {
+    .menu-toggle.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #800000;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 12px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
     
     /* Carousel styles */
