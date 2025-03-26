@@ -112,12 +112,15 @@
     /* Carousel styles */
     .carousel {
         width: 95%;
-        height: 50vh;
-        max-height: 400px;
+        height: 40vh;
+        max-height: 350px;
+        margin: 10px auto;
     }
-    
+
     .slide img {
-        max-height: 300px;
+        max-height: 250px;
+        margin: 0;
+        padding: 0;
     }
     
     /* About section */
