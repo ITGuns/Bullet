@@ -111,14 +111,14 @@
     
     /* Carousel styles */
     .carousel {
-        width: 95%;
-        height: 40vh;
-        max-height: 350px;
-        margin: 5px auto;
+        width: 100%;
+        height: 35vh;
+        max-height: 300px;
+        margin: 0;
     }
 
     .slide img {
-        max-height: 250px;
+        max-height: 200px;
         margin: 0;
         padding: 0;
     }
