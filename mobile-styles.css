@@ -55,20 +55,24 @@
     }
 
     .nav-links {
-        display: none;
         position: fixed;
         top: 60px;
         left: 0;
         width: 100%;
+        height: 0;
         background: #800000;
-        padding: 1rem;
+        padding: 0;
         flex-direction: column;
         align-items: center;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 1000;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
     }
 
     .nav-links.active {
+        height: auto;
+        padding: 1rem;
         display: flex;
     }
 
@@ -85,7 +89,8 @@
         color: white;
         text-decoration: none;
         border-radius: 8px;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
+        opacity: 0.9;
     }
 
     .nav-links li a:hover {
