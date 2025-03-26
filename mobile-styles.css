@@ -1,0 +1,181 @@
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    /* General styles */
+    body {
+        font-size: 16px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    /* Navbar styles */
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .company-logo {
+        height: 35px;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .menu-toggle span {
+        transition: all 0.3s ease;
+    }
+    
+    .menu-toggle span.active:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .menu-toggle span.active:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle span.active:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Carousel styles */
+    .carousel {
+        width: 95%;
+        height: 50vh;
+        max-height: 400px;
+    }
+    
+    .slide img {
+        max-height: 300px;
+    }
+    
+    /* About section */
+    .lt-logo img {
+        width: 250px;
+        max-width: 90%;
+    }
+    
+    .vision-mission h3 {
+        font-size: 1.8rem;
+        margin: 20px 0 10px;
+    }
+    
+    .vision-mission p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    
+    .logo-row {
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .partner-logo {
+        width: 60px;
+    }
+    
+    /* Form styles */
+    .application-form-container {
+        padding: 15px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    input, select, textarea {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    /* Contact section */
+    .contact-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-item {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+    }
+    
+    /* Footer styles */
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .footer-section {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* Modal styles */
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+    
+    .consent-text {
+        max-height: 150px;
+        font-size: 0.85rem;
+    }
+    
+    .consent-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-agree, .btn-cancel {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 12px;
+    }
+    
+    .company-logo {
+        height: 30px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .vision-mission h3 {
+        font-size: 1.5rem;
+    }
+    
+    .partner-logo {
+        width: 50px;
+    }
+    
+    .lt-logo img {
+        width: 200px;
+    }
+    
+    .contact-item i {
+        font-size: 1.2rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+}
