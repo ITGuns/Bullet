@@ -329,7 +329,7 @@
     /* Navbar styles */
     .navbar {
         padding: 5px 15px;
-        height: 45px; /* Reduced from 50px */
+        height: 47px;
         position: fixed;
         top: 0;
         left: 0;
@@ -337,21 +337,22 @@
         z-index: 1000;
     }
     
-    .nav-links {
-        top: 45px; /* Adjust to match navbar height */
-    }
-    
     /* Carousel styles */
     .carousel {
         width: 100%;
         height: 40vh;
         max-height: 300px;
-        margin-top: 45px; /* Reduced from 50px to match navbar height */
+        margin-top: 35px; /* Reduced from 45px to 35px */
     }
 
-    /* Adjust other sections to follow */
+    /* Adjust nav-links to match navbar */
+    .nav-links {
+        top: 47px; /* Match navbar height exactly */
+    }
+
+    /* Adjust section spacing */
     .section {
-        margin-top: -10px; /* Reduced negative margin */
+        margin-top: -15px;
     }
 }
 
